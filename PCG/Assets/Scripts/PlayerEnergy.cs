@@ -78,4 +78,10 @@ public class PlayerEnergy : MonoBehaviour
     {
         _energySlider.fillAmount = _energy / 10f;
     }
+
+    public void RecoverEnergy()
+    {
+        _energy = 10;
+    }
+    
 }

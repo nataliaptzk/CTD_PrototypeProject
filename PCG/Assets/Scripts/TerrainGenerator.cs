@@ -52,7 +52,7 @@ public class TerrainGenerator : MonoBehaviour
 
     [Header("Dummy stats")] public int killedEnemiesDummy;
     public int gatheredObjectsDummy;
-    public int terrainValue;
+    private int terrainValue;
     [Header("Other")] [SerializeField] private GameObject _loadingImage;
     private Stopwatch stopwatch;
 

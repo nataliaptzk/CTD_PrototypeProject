@@ -68,7 +68,7 @@ public class ThirdPersonController : MonoBehaviour
         transform.Rotate(0, Time.deltaTime * _rotationSpeed * _horizontal, 0);
 
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canPlay)
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
         }

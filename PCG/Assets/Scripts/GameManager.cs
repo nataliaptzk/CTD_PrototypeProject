@@ -98,6 +98,7 @@ public class GameManager : MonoBehaviour
         _daysIngame++;
         _bits = 0;
         _bitsRequired = _daysIngame * 10;
+        _player.GetComponent<PlayerEnergy>().RecoverEnergy();
         UpdateUI();
         _player.GetComponent<ThirdPersonController>().canPlay = true;
         Time.timeScale = 1;
@@ -110,6 +111,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         _newDayPanel.SetActive(false);
         _light.gameObject.SetActive(true);
+        StartCoroutine(Countdown(60));
+
     }
 
     public void GameOver()
@@ -171,7 +174,7 @@ public class GameManager : MonoBehaviour
 
         _player.GetComponent<ThirdPersonController>().canPlay = false;
         _light.gameObject.SetActive(false);
-        StartCoroutine(PushMessageEnumerator("You can't shoot or gather. Head to the base, otherwise you die!", 5));
+        StartCoroutine(PushMessageEnumerator("You can't gather at night! But you can kill enemies! Head to the base, otherwise you die!", 5));
     }
 
     IEnumerator PushMessageEnumerator(string message, int time)
